@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, GridItem, SimpleGrid } from "@chakra-ui/react";
-import Image from "next/image";
 import Navbar from "./(components)/Navbar/page";
 
 export default function Desktop() {
