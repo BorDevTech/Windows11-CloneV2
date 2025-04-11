@@ -32,7 +32,8 @@ export default function BackgroundSwitcher() {
         backgroundImage: `url(${currentBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        
+        zIndex: -1,
+        transition: "background-image 1s ease-in-out",
       }}
     />
   );

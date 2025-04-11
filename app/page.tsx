@@ -6,6 +6,9 @@ import { LuChevronRight } from "react-icons/lu";
 import { useState } from "react";
 import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 
+
+ 
+
 export default function Desktop() {
   const [iconSize, setIconSize] = useState("lg-icons");
   // LG icons shows 6 items per column 18 items per row
