@@ -5,11 +5,9 @@ import React from "react";
 const Navbar = () => {
   return (
     <GridItem
-      rowStart={20}
-      rowEnd={20}
+      rowSpan={1}
+      colEnd={"auto"}
       alignContent={"center"}
-      colStart={1}
-      colEnd={21}
       border={"1px solid white"}
     >
       <Center>20test</Center>

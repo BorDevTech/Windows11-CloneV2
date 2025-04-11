@@ -4,9 +4,13 @@ import { Center, GridItem, Menu, Portal, SimpleGrid } from "@chakra-ui/react";
 import Navbar from "./(components)/Navbar/page";
 import { LuChevronRight } from "react-icons/lu";
 import { useState } from "react";
+import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 
 export default function Desktop() {
   const [iconSize, setIconSize] = useState("lg-icons");
+  // LG icons shows 6 items per column 18 items per row
+  // MD icons shows 10 items per column 25 items per row
+  // SM icons shows 12 items per column 25 items per row
 
   const iconSizes = [
     { label: "LG icons", value: "lg-icons" },
@@ -14,13 +18,34 @@ export default function Desktop() {
     { label: "SM icons", value: "sm-icons" },
   ];
 
+  const [iconLayout, setIconLayout] = useState({
+    xMax: iconSize === "lg-icons" ? 6 : iconSize === "md-icons" ? 10 : 12,
+    yMax: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 25 : 25,
+  });
+
+  const [sortType, setSortType] = useState("name");
+
+  // Name shows items listed in ABC order
+  // Size shows items listed in title.length order
+  // Item type shows items listed by "system" or custom* order
+  // Date modified shows items listed by date modified order
+
+  // *custom order is projects created and advertised by subscription
+  const sortTypes = [
+    { label: "Name", value: "name" },
+    { label: "Size", value: "size" },
+    { label: "Item type", value: "item-type" },
+    { label: "Date modified", value: "date-modified" },
+  ];
+
   return (
     <>
+    <BackgroundSwitcher />
       <Menu.Root>
         <Menu.ContextTrigger width="full">
           <SimpleGrid
-            templateColumns={`repeat(20,1fr)`}
-            templateRows={`repeat(20,1fr)`}
+            templateColumns={`repeat(${iconLayout.yMax},1fr)`}
+            templateRows={`repeat(${iconLayout.xMax},1fr)`}
             border={"1px solid white"}
             h={"100vh"}
             borderRadius={"10px 10px 10px 10px"}
@@ -90,6 +115,7 @@ export default function Desktop() {
         <Portal>
           <Menu.Positioner>
             <Menu.Content>
+              {/* icons size items group */}
               <Menu.Root positioning={{ placement: "right-start", gutter: 2 }}>
                 <Menu.TriggerItem>
                   View <LuChevronRight />
@@ -97,7 +123,6 @@ export default function Desktop() {
                 <Portal>
                   <Menu.Positioner>
                     <Menu.Content>
-                      {/* icons size items group */}
                       <Menu.RadioItemGroup
                         value={iconSize}
                         onValueChange={(e) => setIconSize(e.value)}
@@ -119,14 +144,27 @@ export default function Desktop() {
               </Menu.Root>
               <Menu.Root positioning={{ placement: "right-start", gutter: 2 }}>
                 <Menu.TriggerItem>
-                  Sort by <LuChevronRight />
+                  Sort by
+                  <LuChevronRight />
                 </Menu.TriggerItem>
                 <Portal>
                   <Menu.Positioner>
                     <Menu.Content>
-                      <Menu.Item value="lg-icons">LG icons</Menu.Item>
-                      <Menu.Item value="md-icons">MD icons</Menu.Item>
-                      <Menu.Item value="sm-icons">SM icons</Menu.Item>
+                      <Menu.RadioItemGroup
+                        value={sortType}
+                        onValueChange={(e) => setSortType(e.value)}
+                      >
+                        {sortTypes.map((item) => (
+                          <Menu.RadioItem
+                            key={item.value}
+                            value={item.value}
+                            closeOnSelect={false}
+                          >
+                            {item.label}
+                            <Menu.ItemIndicator />
+                          </Menu.RadioItem>
+                        ))}
+                      </Menu.RadioItemGroup>
                     </Menu.Content>
                   </Menu.Positioner>
                 </Portal>
