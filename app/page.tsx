@@ -61,7 +61,7 @@ export default function Desktop() {
         templateColumns={`repeat(${iconLayout.xMax},1fr)`}
         templateRows={`repeat(${iconLayout.yMax},1fr)`}
         userSelect="none"
-        bgImage={`url("/images/image1.png")`}
+        bgImage={`url("/images/image1 (1).jpg")`}
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
         h={"100vh"}

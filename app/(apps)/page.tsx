@@ -104,8 +104,18 @@ export default function AppLauncher({
                             e.value as "lg-icons" | "md-icons" | "sm-icons"
                           );
                           setIconLayout({
-                            x: e.value === "lg-icons" ? 36 : 50,
-                            y: 0,
+                            x:
+                              e.value === "lg-icons"
+                                ? 36
+                                : e.value === "md-icons"
+                                ? 50
+                                : 50,
+                            y:
+                              e.value === "lg-icons"
+                                ? 18
+                                : e.value === "md-icons"
+                                ? 22
+                                : 26,
                           });
                         }}
                       >
