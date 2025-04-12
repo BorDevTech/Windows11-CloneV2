@@ -1,4 +1,12 @@
-import { Button, GridItem, Menu, Portal, SimpleGrid } from "@chakra-ui/react";
+import {
+  Button,
+  Grid,
+  GridItem,
+  Menu,
+  Portal,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/react";
 import * as exports from "./index";
 import { LuChevronRight } from "react-icons/lu";
 import { useState } from "react";
@@ -67,25 +75,27 @@ export default function AppLauncher({
   ];
 
   return (
-    <GridItem rowSpan={26} colSpan={50}>
+    <GridItem
+      rowSpan={iconLayout.y - 2}
+      colSpan={iconLayout.x}
+      alignContent={"center"}
+    >
       <Menu.Root>
         <Menu.ContextTrigger width="full">
-          hi
-          <SimpleGrid
-            templateColumns={`repeat(50,1fr)`}
-            templateRows={`repeat(26,1fr)`}
+          <Grid
+            templateColumns={`repeat(${iconLayout.x}, 1fr)`}
+            templateRows={`repeat(${iconLayout.y}, 1fr)`}
+            width="full"
+            height="full"
           >
             {Object.entries(exports).map(([key, value]) => (
-              <GridItem
-                rowSpan={2}
-                colSpan={2}
-                alignContent={"center"}
-                key={key}
-              >
-                <Button>{key}</Button>
+              <GridItem rowSpan={2} colSpan={2}>
+                <Button key={key} alignContent={"center"}>
+                  {key}
+                </Button>
               </GridItem>
             ))}
-          </SimpleGrid>
+          </Grid>
         </Menu.ContextTrigger>
         <Portal>
           <Menu.Positioner>

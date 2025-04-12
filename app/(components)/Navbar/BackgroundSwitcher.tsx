@@ -7,19 +7,21 @@ export default function BackgroundSwitcher() {
     "/images/image2.png",
     "/images/image3.png",
   ];
-  const [currentBackground, setCurrentBackground] = useState(backgroundImages[0]);
+  const [currentBackground, setCurrentBackground] = useState(
+    backgroundImages[0]
+  );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBackground((prev) => {
-        const currentIndex = backgroundImages.indexOf(prev);
-        const nextIndex = (currentIndex + 1) % backgroundImages.length;
-        return backgroundImages[nextIndex];
-      });
-    }, 30000); // Change every 5 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentBackground((prev) => {
+  //       const currentIndex = backgroundImages.indexOf(prev);
+  //       const nextIndex = (currentIndex + 1) % backgroundImages.length;
+  //       return backgroundImages[nextIndex];
+  //     });
+  //   }, 30000); // Change every 5 seconds
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  //   return () => clearInterval(interval); // Cleanup on unmount
+  // }, []);
 
   return (
     <div

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
-import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 
 export const metadata: Metadata = {
   title: "Create Next App",
