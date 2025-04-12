@@ -99,11 +99,15 @@ export default function AppLauncher({
                     <Menu.Content>
                       <Menu.RadioItemGroup
                         value={iconSize}
-                        onValueChange={(e) =>
+                        onValueChange={(e) => {
                           setIconSize(
                             e.value as "lg-icons" | "md-icons" | "sm-icons"
-                          )
-                        }
+                          );
+                          setIconLayout({
+                            x: e.value === "lg-icons" ? 36 : 50,
+                            y: 0,
+                          });
+                        }}
                       >
                         {iconSizes.map((item) => (
                           <Menu.RadioItem
