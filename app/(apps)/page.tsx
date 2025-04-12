@@ -1,15 +1,6 @@
-import {
-  Button,
-  Grid,
-  GridItem,
-  Menu,
-  Portal,
-  SimpleGrid,
-  Stack,
-} from "@chakra-ui/react";
+import { Button, Grid, GridItem, Menu, Portal } from "@chakra-ui/react";
 import * as exports from "./index";
 import { LuChevronRight } from "react-icons/lu";
-import { useState } from "react";
 
 interface ContextMenu {
   Iconmode: {
@@ -45,10 +36,10 @@ export default function AppLauncher({
   // MD icons shows 10 items per column 25 items per row
   // SM icons shows 12 items per column 25 items per row
 
-  const exportKeys = Object.values(exports).map((key) => ({
-    key: key.toString(),
-    element: <Button key={key.toString()}>{key.toString()}</Button>,
-  }));
+//   const exportKeys = Object.values(exports).map((key) => ({
+//     key: key.toString(),
+//     element: <Button key={key.toString()}>{key.toString()}</Button>,
+//   }));
 
   //   <GridItem rowSpan={17} colSpan={20} alignContent={"center"}>
   //     {exportKeys.map((key) => (
@@ -108,6 +99,7 @@ export default function AppLauncher({
                   <Menu.Positioner>
                     <Menu.Content>
                       <Menu.RadioItemGroup
+                      {/* @ts-ignore */}
                         value={iconSize}
                         onValueChange={(e) => {
                           setIconSize(
@@ -132,6 +124,7 @@ export default function AppLauncher({
                         {iconSizes.map((item) => (
                           <Menu.RadioItem
                             key={item.value}
+                            {/* @ts-ignore */}
                             value={item.value}
                             closeOnSelect={false}
                           >
@@ -153,6 +146,7 @@ export default function AppLauncher({
                   <Menu.Positioner>
                     <Menu.Content>
                       <Menu.RadioItemGroup
+                      {/* @ts-ignore */}
                         value={sortType}
                         onValueChange={(e) => setSortType(e.value)}
                       >
