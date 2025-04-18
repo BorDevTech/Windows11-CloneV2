@@ -19,7 +19,7 @@ import { useState } from "react";
 //   };
 // }
 export default function StartUp() {
-  //@ts-ignore
+  // @ts-expect-error
   const [iconSize, setIconSize] = useState<
     "lg-icons" | "md-icons" | "sm-icons"
   >("lg-icons");
@@ -32,7 +32,7 @@ export default function StartUp() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  //@ts-ignore
+  // @ts-expect-error
   const [iconLayout, setIconLayout] = useState({
     yMax: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 22 : 26,
     xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
