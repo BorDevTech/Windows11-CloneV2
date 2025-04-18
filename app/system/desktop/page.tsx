@@ -1,11 +1,11 @@
 "use client";
 
 import { SimpleGrid } from "@chakra-ui/react";
-import Navbar from "./(components)/Navbar/page";
+import Navbar from "./(components)/Navbar/Navbar";
 
 import { useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
-import AppLauncher from "./(components)/AppLauncher/page";
+import AppLauncher from "./(components)/AppLauncher/AppLauncher";
 
 // interface ContextMenu {
 //   Iconmode: {

@@ -12,7 +12,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
-import ContextMenu from "../ContextMenu/page";
+import ContextMenu from "../ContextMenu/ContextMenu"; // Update the path to the correct location
 
 // interface AppLauncherProps {
 //   screenSize: { x: number; y: number }; // Screen size in grid units
