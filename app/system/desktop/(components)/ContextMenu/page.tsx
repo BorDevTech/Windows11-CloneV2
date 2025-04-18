@@ -11,7 +11,7 @@ interface ContextMenuProps {
   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
   setIconSize: (value: "lg-icons" | "md-icons" | "sm-icons") => void;
   setSortType: (value: "name" | "size" | "item-type" | "date-modified") => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function ContextMenu({

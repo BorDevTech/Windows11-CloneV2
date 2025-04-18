@@ -81,7 +81,7 @@ export default function Desktop() {
         iconLayout={iconLayout}
         setIconSize={setIconSize} // Pass setIconSize
         setSortType={setSortType} // Pass setIconSize
-        setIconLayout={({ x, y }) => setIconLayout({ x: x, y: y })} // Map input to expected structure
+        setIconLayout={({ x, y }) => setIconLayout({ x, y })} // Map input to expected structure
       />
       <Navbar screenSize={screenSize} />
     </SimpleGrid>
