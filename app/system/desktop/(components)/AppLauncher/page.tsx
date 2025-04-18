@@ -1,28 +1,28 @@
 "use client";
-import {
-  AbsoluteCenter,
-  Avatar,
-  AvatarGroup,
-  Button,
-  GridItem,
-  Dialog,
-  Portal,
-  Stack,
-  CloseButton,
-  SimpleGrid,
-} from "@chakra-ui/react";
-import * as exports from "./(apps)/index";
-import ContextMenu from "../ContextMenu/page";
+// import {
+//   AbsoluteCenter,
+//   Avatar,
+//   AvatarGroup,
+//   Button,
+//   GridItem,
+//   Dialog,
+//   Portal,
+//   Stack,
+//   CloseButton,
+//   SimpleGrid,
+// } from "@chakra-ui/react";
+// import * as exports from "./(apps)/index";
+// import ContextMenu from "../ContextMenu/page";
 
-interface AppLauncherProps {
-  screenSize: { x: number; y: number }; // Screen size in grid units
-  iconSize: "lg-icons" | "md-icons" | "sm-icons"; // Icon size options
-  iconLayout: { x: 36 | 50; y: 24 | 40 | 48 }; // Grid layout for icons
-  sortType: "name" | "size" | "item-type" | "date-modified"; // Sorting options
-  setIconSize: (value: "lg-icons" | "md-icons" | "sm-icons") => void; // Function to update icon size
-  setSortType: (value: "name" | "size" | "item-type" | "date-modified") => void; // Function to update sort type
-  setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void; // Function to update icon layout
-}
+// interface AppLauncherProps {
+//   screenSize: { x: number; y: number }; // Screen size in grid units
+//   iconSize: "lg-icons" | "md-icons" | "sm-icons"; // Icon size options
+//   iconLayout: { x: 36 | 50; y: 24 | 40 | 48 }; // Grid layout for icons
+//   sortType: "name" | "size" | "item-type" | "date-modified"; // Sorting options
+//   setIconSize: (value: "lg-icons" | "md-icons" | "sm-icons") => void; // Function to update icon size
+//   setSortType: (value: "name" | "size" | "item-type" | "date-modified") => void; // Function to update sort type
+//   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void; // Function to update icon layout
+// }
 
 // interface AppLauncherProps {
 //   iconSize: "lg-icons" | "md-icons" | "sm-icons";
@@ -37,15 +37,16 @@ interface AppLauncherProps {
 //   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
 // }
 
-export default function AppLauncher({
-  screenSize,
-  iconSize,
-  iconLayout,
-  sortType,
-  setIconSize,
-  setSortType,
-  setIconLayout,
-}: AppLauncherProps) {
+export default function AppLauncher() {
+//   {
+//   screenSize,
+//   iconSize,
+//   iconLayout,
+//   sortType,
+//   setIconSize,
+//   setSortType,
+//   setIconLayout,
+// }: AppLauncherProps
   // LG icons shows 6 items per column 18 items per row
   // MD icons shows 10 items per column 25 items per row
   // SM icons shows 12 items per column 25 items per row
@@ -63,7 +64,7 @@ export default function AppLauncher({
 
   return (
     <>
-      <GridItem rowStart={1} rowSpan={screenSize.y - 1} colSpan={screenSize.x}>
+      {/* <GridItem rowStart={1} rowSpan={screenSize.y - 1} colSpan={screenSize.x}>
         <ContextMenu
           iconSize={iconSize}
           iconLayout={iconLayout}
@@ -144,7 +145,7 @@ export default function AppLauncher({
             ))}
           </SimpleGrid>
         </ContextMenu>
-      </GridItem>
+      </GridItem> */}
     </>
   );
 }

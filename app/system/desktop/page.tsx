@@ -74,14 +74,14 @@ export default function Desktop() {
       position={"absolute"}
     >
       <AppLauncher
-        screenSize={screenSize}
+        // screenSize={screenSize}
         // contextMenu prop removed or replace with an appropriate value if needed
-        iconSize={iconSize}
-        sortType={sortType}
-        iconLayout={iconLayout}
-        setIconSize={setIconSize} // Pass setIconSize
-        setSortType={setSortType} // Pass setIconSize
-        setIconLayout={({ x, y }) => setIconLayout({ x, y })} // Map input to expected structure
+        // iconSize={iconSize}
+        // sortType={sortType}
+        // iconLayout={iconLayout}
+        // setIconSize={setIconSize} // Pass setIconSize
+        // setSortType={setSortType} // Pass setIconSize
+        // setIconLayout={({ x, y }) => setIconLayout({ x, y })} // Map input to expected structure
       />
       <Navbar screenSize={screenSize} />
     </SimpleGrid>
