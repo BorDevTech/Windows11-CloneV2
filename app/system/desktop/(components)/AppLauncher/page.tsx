@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
 import ContextMenu from "../ContextMenu/page";
+
 interface AppLauncherProps {
   screenSize: { x: number; y: number }; // Screen size in grid units
   iconSize: "lg-icons" | "md-icons" | "sm-icons"; // Icon size options
