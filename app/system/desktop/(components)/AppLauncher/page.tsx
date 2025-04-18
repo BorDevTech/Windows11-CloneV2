@@ -21,14 +21,7 @@ interface AppLauncherProps {
   screenSize: { x: number; y: number };
 
   setSortType: (value: `name` | `size` | `item-type` | `date-modified`) => void;
-  // AdditionMode: {
-  //   filetype:
-  //     | "folder"
-  //     | "shortcut"
-  //     | "bitmap-image"
-  //     | "text-document"
-  //     | "compressed-folder";
-  // };
+
   setIconSize: (value: `lg-icons` | `md-icons` | `sm-icons`) => void;
   // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
