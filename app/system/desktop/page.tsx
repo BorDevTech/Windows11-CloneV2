@@ -7,21 +7,21 @@ import { useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 import AppLauncher from "./(components)/AppLauncher/page";
 
-interface ContextMenu {
-  Iconmode: {
-    size: `lg-icons` | `md-icons` | `sm-icons`;
-    layout: { x: 36 | 50; y: 18 | 22 | 26 };
-  };
-  Sortmode: `name` | `size` | `item-type` | `date-modified`;
-  AdditionMode: {
-    filetype:
-      | "folder"
-      | "shortcut"
-      | "bitmap-image"
-      | "text-document"
-      | "compressed-folder";
-  };
-}
+// interface ContextMenu {
+//   Iconmode: {
+//     size: `lg-icons` | `md-icons` | `sm-icons`;
+//     layout: { x: 36 | 50; y: 18 | 22 | 26 };
+//   };
+//   Sortmode: `name` | `size` | `item-type` | `date-modified`;
+//   AdditionMode: {
+//     filetype:
+//       | "folder"
+//       | "shortcut"
+//       | "bitmap-image"
+//       | "text-document"
+//       | "compressed-folder";
+//   };
+// }
 
 export default function Desktop() {
   const [iconSize, setIconSize] = useState<
