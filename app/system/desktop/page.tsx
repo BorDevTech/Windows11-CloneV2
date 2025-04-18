@@ -36,7 +36,7 @@ export default function Desktop() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  // @ts-expect-error
+  // @ts-expect-error req 
   const [iconLayout, setIconLayout] = useState({
     yMax: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
     xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
@@ -45,7 +45,7 @@ export default function Desktop() {
   const [sortType, setSortType] = useState<
     "name" | "size" | "item-type" | "date-modified"
   >("name");
-  // @ts-expect-error
+  // @ts-expect-error req
   const [screenSize, setScreenSize] = useState({ x: 20, y: 20 });
 
   // Name shows items listed in ABC order

@@ -75,7 +75,7 @@ export default function AppLauncher({
           w={"100%"}
           gap={1}
         >
-          {/*  @ts-expect-error */}
+          {/* @ts-expect-error req */}
           {Object.entries(exports).map(([key, value]) => (
             <GridItem
               rowSpan={2}
