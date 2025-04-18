@@ -1,7 +1,11 @@
 "use client";
-import { GridItem, SimpleGrid } from "@chakra-ui/react";
-import Login from "./system/login/page";
+
+import { SimpleGrid } from "@chakra-ui/react";
+import Navbar from "./(components)/Navbar/page";
+
 import { useState } from "react";
+// import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
+import AppLauncher from "./(components)/AppLauncher/page";
 
 // interface ContextMenu {
 //   Iconmode: {
@@ -18,7 +22,8 @@ import { useState } from "react";
 //       | "compressed-folder";
 //   };
 // }
-export default function StartUp() {
+
+export default function Desktop() {
   const [iconSize, setIconSize] = useState<
     "lg-icons" | "md-icons" | "sm-icons"
   >("lg-icons");
@@ -33,13 +38,14 @@ export default function StartUp() {
   // ];
 
   const [iconLayout, setIconLayout] = useState({
-    yMax: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 22 : 26,
+    yMax: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
     xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
   });
 
   const [sortType, setSortType] = useState<
     "name" | "size" | "item-type" | "date-modified"
   >("name");
+  const [screenSize, setScreenSize] = useState({ x: 20, y: 20 });
 
   // Name shows items listed in ABC order
   // Size shows items listed in title.length order
@@ -56,8 +62,8 @@ export default function StartUp() {
 
   return (
     <SimpleGrid
-      templateColumns={`repeat(${iconLayout.xMax},1fr)`}
-      templateRows={`repeat(${iconLayout.yMax},1fr)`}
+      templateColumns={`repeat(${screenSize.x},1fr)`}
+      templateRows={`repeat(${screenSize.y},1fr)`}
       userSelect="none"
       bgImage={`url("/images/image2.jpg")`}
       bgRepeat={"no-repeat"}
@@ -66,15 +72,20 @@ export default function StartUp() {
       w={"100vw"}
       position={"absolute"}
     >
-      <GridItem
-        alignItems={"center"}
-        colStart={iconLayout.xMax * (1 / 3) + 1}
-        colEnd={iconLayout.xMax * (2 / 3) + 1}
-        rowStart={iconLayout.yMax * (1 / 3) + 1}
-        rowEnd={iconLayout.yMax * (2 / 3) + 1}
-      >
-        <Login />
-      </GridItem>
+      <AppLauncher
+        screenSize={screenSize}
+        // contextMenu prop removed or replace with an appropriate value if needed
+        iconSize={iconSize}
+        sortType={sortType}
+        iconLayout={{
+          x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
+          y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
+        }}
+        setIconSize={setIconSize} // Pass setIconSize
+        setSortType={setSortType} // Pass setIconSize
+        setIconLayout={({ x, y }) => setIconLayout({ xMax: x, yMax: y })} // Map input to expected structure
+      />
+      <Navbar screenSize={screenSize} />
     </SimpleGrid>
   );
 }
