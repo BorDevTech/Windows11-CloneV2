@@ -3,7 +3,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import Navbar from "./(components)/Navbar/page";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 import AppLauncher from "./(components)/AppLauncher/page";
 
@@ -36,17 +36,17 @@ export default function Desktop() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  // @ts-expect-error req 
-  const [iconLayout, setIconLayout] = useState({
-    yMax: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
-    xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
-  });
+  const [iconLayout, setIconLayout] = useState<{ x: 36 | 50; y: 24 | 40 | 48 }>(
+    {
+      y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
+      x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
+    }
+  );
 
   const [sortType, setSortType] = useState<
     "name" | "size" | "item-type" | "date-modified"
   >("name");
-  // @ts-expect-error req
-  const [screenSize, setScreenSize] = useState({ x: 20, y: 20 });
+  const [screenSize] = useState({ x: 20, y: 20 });
 
   // Name shows items listed in ABC order
   // Size shows items listed in title.length order
@@ -78,13 +78,10 @@ export default function Desktop() {
         // contextMenu prop removed or replace with an appropriate value if needed
         iconSize={iconSize}
         sortType={sortType}
-        iconLayout={{
-          x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
-          y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
-        }}
+        iconLayout={iconLayout}
         setIconSize={setIconSize} // Pass setIconSize
         setSortType={setSortType} // Pass setIconSize
-        setIconLayout={({ x, y }) => setIconLayout({ xMax: x, yMax: y })} // Map input to expected structure
+        setIconLayout={({ x, y }) => setIconLayout({ x: x, y: y })} // Map input to expected structure
       />
       <Navbar screenSize={screenSize} />
     </SimpleGrid>

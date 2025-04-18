@@ -19,10 +19,7 @@ import { useState } from "react";
 //   };
 // }
 export default function StartUp() {
-  // @ts-expect-error req
-  const [iconSize, setIconSize] = useState<
-    "lg-icons" | "md-icons" | "sm-icons"
-  >("lg-icons");
+  const [iconSize] = useState<"lg-icons" | "md-icons" | "sm-icons">("lg-icons");
   // LG icons shows 6 items per column 18 items per row (x:36, y:18)
   // MD icons shows 10 items per column 25 items per row (x:50, y:22)
   // SM icons shows 12 items per column 25 items per row (x:50, y:26)
@@ -32,8 +29,7 @@ export default function StartUp() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  // @ts-expect-error req
-  const [iconLayout, setIconLayout] = useState({
+  const [iconLayout] = useState({
     yMax: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 22 : 26,
     xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
   });

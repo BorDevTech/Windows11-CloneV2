@@ -13,8 +13,7 @@ import React from "react";
 interface NavbarMenu {
   screenSize: { x: number; y: number };
 }
-// @ts-expect-error req
-interface NavbarContextMenu {}
+// interface NavbarContextMenu {}
 
 export default function Navbar({
   screenSize,
