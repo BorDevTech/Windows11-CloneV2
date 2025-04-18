@@ -27,14 +27,14 @@ interface AppLauncherProps {
   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
 }
 
-export default function AppLauncher({
+export function AppLauncher({
+  screenSize,
   iconSize,
   iconLayout,
   sortType,
   setIconSize,
   setSortType,
   setIconLayout,
-  screenSize,
 }: AppLauncherProps) {
   // LG icons shows 6 items per column 18 items per row
   // MD icons shows 10 items per column 25 items per row
@@ -129,16 +129,6 @@ export default function AppLauncher({
                   </Dialog.Positioner>
                 </Portal>
               </Dialog.Root>
-              {/* <AbsoluteCenter
-                position={"relative"}
-                asChild
-                alignItems={"center"}
-                justifyContent={"center"}
-                top={"50%"}
-                left={"50%"}
-              ></AbsoluteCenter> */}
-
-              {/* <Button alignContent={"center"}>{key}</Button> */}
             </GridItem>
           ))}
         </SimpleGrid>

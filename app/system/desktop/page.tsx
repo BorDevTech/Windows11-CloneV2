@@ -5,7 +5,7 @@ import Navbar from "./(components)/Navbar/page";
 
 import { useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
-import AppLauncher from "./(components)/AppLauncher/page";
+import { AppLauncher } from "./(components)/AppLauncher/page";
 
 // interface ContextMenu {
 //   Iconmode: {
