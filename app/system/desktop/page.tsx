@@ -3,7 +3,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import Navbar from "./(components)/Navbar/page";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 import AppLauncher from "./(components)/AppLauncher/page";
 
