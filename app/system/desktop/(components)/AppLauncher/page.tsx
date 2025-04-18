@@ -13,21 +13,30 @@ import {
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
 import ContextMenu from "../ContextMenu/page";
-
 interface AppLauncherProps {
-  iconSize: "lg-icons" | "md-icons" | "sm-icons";
-  sortType: "name" | "size" | "item-type" | "date-modified";
-  iconLayout: { x: 36 | 50; y: 24 | 40 | 48 };
-  screenSize: { x: number; y: number };
-
-  setSortType: (value: `name` | `size` | `item-type` | `date-modified`) => void;
-
-  setIconSize: (value: `lg-icons` | `md-icons` | `sm-icons`) => void;
-  // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
-  setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
+  screenSize: { x: number; y: number }; // Screen size in grid units
+  iconSize: "lg-icons" | "md-icons" | "sm-icons"; // Icon size options
+  iconLayout: { x: 36 | 50; y: 24 | 40 | 48 }; // Grid layout for icons
+  sortType: "name" | "size" | "item-type" | "date-modified"; // Sorting options
+  setIconSize: (value: "lg-icons" | "md-icons" | "sm-icons") => void; // Function to update icon size
+  setSortType: (value: "name" | "size" | "item-type" | "date-modified") => void; // Function to update sort type
+  setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void; // Function to update icon layout
 }
 
-export function AppLauncher({
+// interface AppLauncherProps {
+//   iconSize: "lg-icons" | "md-icons" | "sm-icons";
+//   sortType: "name" | "size" | "item-type" | "date-modified";
+//   iconLayout: { x: 36 | 50; y: 24 | 40 | 48 };
+//   screenSize: { x: number; y: number };
+
+//   setSortType: (value: `name` | `size` | `item-type` | `date-modified`) => void;
+
+//   setIconSize: (value: `lg-icons` | `md-icons` | `sm-icons`) => void;
+//   // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
+//   setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
+// }
+
+export default function AppLauncher({
   screenSize,
   iconSize,
   iconLayout,
