@@ -7,26 +7,26 @@ import { useState } from "react";
 // import BackgroundSwitcher from "./(components)/Navbar/BackgroundSwitcher";
 import AppLauncher from "./(components)/AppLauncher/page";
 
-// interface ContextMenu {
-//   Iconmode: {
-//     size: `lg-icons` | `md-icons` | `sm-icons`;
-//     layout: { x: 36 | 50; y: 18 | 22 | 26 };
-//   };
-//   Sortmode: `name` | `size` | `item-type` | `date-modified`;
-//   AdditionMode: {
-//     filetype:
-//       | "folder"
-//       | "shortcut"
-//       | "bitmap-image"
-//       | "text-document"
-//       | "compressed-folder";
-//   };
-// }
+interface ContextMenu {
+  Iconmode: {
+    size: `lg-icons` | `md-icons` | `sm-icons`;
+    layout: { x: 36 | 50; y: 18 | 22 | 26 };
+  };
+  Sortmode: `name` | `size` | `item-type` | `date-modified`;
+  AdditionMode: {
+    filetype:
+      | "folder"
+      | "shortcut"
+      | "bitmap-image"
+      | "text-document"
+      | "compressed-folder";
+  };
+}
 
 export default function Desktop() {
-  // const [iconSize, setIconSize] = useState<
-  //   "lg-icons" | "md-icons" | "sm-icons"
-  // >("lg-icons");
+  const [iconSize, setIconSize] = useState<
+    "lg-icons" | "md-icons" | "sm-icons"
+  >("lg-icons");
   // LG icons shows 6 items per column 18 items per row (x:36, y:18)
   // MD icons shows 10 items per column 25 items per row (x:50, y:22)
   // SM icons shows 12 items per column 25 items per row (x:50, y:26)
@@ -36,16 +36,16 @@ export default function Desktop() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  // const [iconLayout, setIconLayout] = useState<{ x: 36 | 50; y: 24 | 40 | 48 }>(
-  //   {
-  //     y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
-  //     x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
-  //   }
-  // );
+  const [iconLayout, setIconLayout] = useState<{ x: 36 | 50; y: 24 | 40 | 48 }>(
+    {
+      y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
+      x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
+    }
+  );
 
-  // const [sortType, setSortType] = useState<
-  //   "name" | "size" | "item-type" | "date-modified"
-  // >("name");
+  const [sortType, setSortType] = useState<
+    "name" | "size" | "item-type" | "date-modified"
+  >("name");
   const [screenSize] = useState({ x: 20, y: 20 });
 
   // Name shows items listed in ABC order
@@ -74,14 +74,14 @@ export default function Desktop() {
       position={"absolute"}
     >
       <AppLauncher
-      // screenSize={screenSize}
-      // contextMenu prop removed or replace with an appropriate value if needed
-      // iconSize={iconSize}
-      // sortType={sortType}
-      // iconLayout={iconLayout}
-      // setIconSize={setIconSize} // Pass setIconSize
-      // setSortType={setSortType} // Pass setIconSize
-      // setIconLayout={({ x, y }) => setIconLayout({ x, y })} // Map input to expected structure
+        screenSize={screenSize}
+        // contextMenu prop removed or replace with an appropriate value if needed
+        iconSize={iconSize}
+        sortType={sortType}
+        iconLayout={iconLayout}
+        setIconSize={setIconSize} // Pass setIconSize
+        setSortType={setSortType} // Pass setIconSize
+        setIconLayout={({ x, y }) => setIconLayout({ x, y })} // Map input to expected structure
       />
       <Navbar screenSize={screenSize} />
     </SimpleGrid>

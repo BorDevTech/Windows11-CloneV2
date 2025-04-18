@@ -14,7 +14,7 @@ interface ContextMenuProps {
   children?: React.ReactNode;
 }
 
-export default function ContextMenu({
+export function ContextMenu({
   iconSize,
   sortType,
   setIconSize,
@@ -155,3 +155,5 @@ export default function ContextMenu({
     </Menu.Root>
   );
 }
+
+export default ContextMenu;
