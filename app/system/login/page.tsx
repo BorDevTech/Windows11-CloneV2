@@ -2,12 +2,9 @@
 
 import {
   Avatar,
-  Button,
   AbsoluteCenter,
   defineStyle,
   HStack,
-  LinkBox,
-  LinkOverlay,
   Stack,
 } from "@chakra-ui/react";
 import Link from "next/link";

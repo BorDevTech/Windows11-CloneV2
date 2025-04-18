@@ -13,6 +13,7 @@ import React from "react";
 interface NavbarMenu {
   screenSize: { x: number; y: number };
 }
+//  @ts-ignore
 interface NavbarContextMenu {}
 
 export default function Navbar({

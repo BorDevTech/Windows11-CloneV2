@@ -19,6 +19,7 @@ import { useState } from "react";
 //   };
 // }
 export default function StartUp() {
+  //@ts-ignore
   const [iconSize, setIconSize] = useState<
     "lg-icons" | "md-icons" | "sm-icons"
   >("lg-icons");
@@ -31,16 +32,11 @@ export default function StartUp() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-
+  //@ts-ignore
   const [iconLayout, setIconLayout] = useState({
     yMax: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 22 : 26,
     xMax: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
   });
-
-  const [sortType, setSortType] = useState<
-    "name" | "size" | "item-type" | "date-modified"
-  >("name");
-
   // Name shows items listed in ABC order
   // Size shows items listed in title.length order
   // Item type shows items listed by "system" or custom* order

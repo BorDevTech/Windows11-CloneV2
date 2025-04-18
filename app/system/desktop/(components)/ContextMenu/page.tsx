@@ -17,6 +17,7 @@ interface ContextMenuProps {
 export default function ContextMenu({
   iconSize,
   sortType,
+  //   @ts-ignore
   iconLayout,
   setIconSize,
   setSortType,

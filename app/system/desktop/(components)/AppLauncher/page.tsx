@@ -4,19 +4,14 @@ import {
   Avatar,
   AvatarGroup,
   Button,
-  Center,
-  Grid,
   GridItem,
-  Menu,
   Dialog,
   Portal,
   Stack,
   CloseButton,
   SimpleGrid,
-  Square,
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
-import { LuChevronRight } from "react-icons/lu";
 import ContextMenu from "../ContextMenu/page";
 
 interface AppLauncherProps {
@@ -80,6 +75,7 @@ export default function AppLauncher({
           w={"100%"}
           gap={1}
         >
+          {/* //@ts-ignore */}
           {Object.entries(exports).map(([key, value]) => (
             <GridItem
               rowSpan={2}

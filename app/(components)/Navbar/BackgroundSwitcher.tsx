@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 export default function BackgroundSwitcher() {
   // Array of image paths
-  const backgroundImages = [
-    "/images/image1.png",
-    "/images/image2.png",
-    "/images/image3.png",
-  ];
-  const [currentBackground, setCurrentBackground] = useState(
-    backgroundImages[0]
-  );
+  // const backgroundImages = [
+  //   "/images/image1.png",
+  //   "/images/image2.png",
+  //   "/images/image3.png",
+  // ];
+  // const [currentBackground, setCurrentBackground] = useState(
+  //   backgroundImages[0]
+  // );
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -24,19 +24,20 @@ export default function BackgroundSwitcher() {
   // }, []);
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundImage: `url(${currentBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        zIndex: -1,
-        transition: "background-image 1s ease-in-out",
-      }}
-    />
+    <></>
+    // <div
+    //   style={{
+    //     position: "absolute",
+    //     top: 0,
+    //     left: 0,
+    //     width: "100%",
+    //     height: "100%",
+    //     backgroundImage: `url(${currentBackground})`,
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center",
+    //     zIndex: -1,
+    //     transition: "background-image 1s ease-in-out",
+    //   }}
+    // />
   );
 }
