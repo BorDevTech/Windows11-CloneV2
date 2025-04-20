@@ -27,14 +27,14 @@ import ContextMenu from "../ContextMenu/ContextMenu"; // Update the path to the 
 interface AppLauncherProps {
   iconSize: "lg-icons" | "md-icons" | "sm-icons";
   sortType: "name" | "size" | "item-type" | "date-modified";
-  iconLayout: { x: 36 | 50; y: 24 | 40 | 48 };
+  iconLayout: { x: 72 | 100; y: 24 | 40 | 48 };
   screenSize: { x: number; y: number };
 
   setSortType: (value: `name` | `size` | `item-type` | `date-modified`) => void;
 
   setIconSize: (value: `lg-icons` | `md-icons` | `sm-icons`) => void;
   // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
-  setIconLayout: (value: { x: 36 | 50; y: 24 | 40 | 48 }) => void;
+  setIconLayout: (value: { x: 72 | 100; y: 24 | 40 | 48 }) => void;
 }
 
 export function AppLauncher({
@@ -80,12 +80,12 @@ export function AppLauncher({
         >
           {Object.entries(exports).map(([key]) => (
             <GridItem
-              rowSpan={2}
-              colSpan={2}
+              rowSpan={iconLayout.y === 24 ? 4 : iconLayout.y === 40 ? 4 : 4}
+              colSpan={iconLayout.x === 72 ? 8 : iconLayout.x === 100 ? 6 : 3}
               key={key}
               border={"1px solid white"}
             >
-              <Dialog.Root>
+              {/* <Dialog.Root>
                 <Dialog.Trigger asChild>
                   <Button alignItems={"center"} justifyContent={"center"}>
                     <Stack>
@@ -138,7 +138,7 @@ export function AppLauncher({
                     </Dialog.Content>
                   </Dialog.Positioner>
                 </Portal>
-              </Dialog.Root>
+              </Dialog.Root> */}
             </GridItem>
           ))}
         </SimpleGrid>

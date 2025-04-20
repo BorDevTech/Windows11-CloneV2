@@ -36,12 +36,13 @@ export default function Desktop() {
   //   { label: "MD icons", value: "md-icons" },
   //   { label: "SM icons", value: "sm-icons" },
   // ];
-  const [iconLayout, setIconLayout] = useState<{ x: 36 | 50; y: 24 | 40 | 48 }>(
-    {
-      y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
-      x: iconSize === "lg-icons" ? 36 : iconSize === "md-icons" ? 50 : 50,
-    }
-  );
+  const [iconLayout, setIconLayout] = useState<{
+    x: 72 | 100;
+    y: 24 | 40 | 48;
+  }>({
+    y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
+    x: iconSize === "lg-icons" ? 72 : iconSize === "md-icons" ? 100 : 100,
+  });
 
   const [sortType, setSortType] = useState<
     "name" | "size" | "item-type" | "date-modified"
