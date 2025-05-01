@@ -27,7 +27,7 @@ NavbarMenu) {
       rowSpan={1}
       colSpan={screenSize.x}
       alignContent={"center"}
-      border={"1px solid white"}
+      backgroundColor={"rgba(31, 202, 224, 0.8)"}
     >
       <Center>20test</Center>
     </GridItem>

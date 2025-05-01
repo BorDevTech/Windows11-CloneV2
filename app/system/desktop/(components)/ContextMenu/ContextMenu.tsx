@@ -6,9 +6,9 @@ import { LuChevronRight } from "react-icons/lu";
 interface ContextMenuProps {
   iconSize: "lg-icons" | "md-icons" | "sm-icons";
   sortType: "name" | "size" | "item-type" | "date-modified";
-  iconLayout: { x: 72 | 100; y: 24 | 40 | 48 };
-  // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
-  setIconLayout: (value: { x: 72 | 100; y: 24 | 40 | 48 }) => void;
+  iconLayout: { x: 18 | 25; y: 6 | 10 | 12 };
+  // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 6 apps | 10 apps | 12 }) => void;
+  setIconLayout: (value: { x: 18 | 25; y: 6 | 10 | 12 }) => void;
   setIconSize: (value: "lg-icons" | "md-icons" | "sm-icons") => void;
   setSortType: (value: "name" | "size" | "item-type" | "date-modified") => void;
   children?: React.ReactNode;
@@ -63,16 +63,16 @@ export function ContextMenu({
                         setIconLayout({
                           x:
                             e.value === "lg-icons"
-                              ? 72
+                              ? 18
                               : e.value === "md-icons"
-                              ? 100
-                              : 100,
+                              ? 25
+                              : 25,
                           y:
                             e.value === "lg-icons"
-                              ? 24
+                              ? 6
                               : e.value === "md-icons"
-                              ? 40
-                              : 48,
+                              ? 10
+                              : 12,
                         });
                       }}
                     >

@@ -10,6 +10,9 @@ import {
   Stack,
   CloseButton,
   SimpleGrid,
+  Square,
+  Center,
+  HStack,
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
 import ContextMenu from "../ContextMenu/ContextMenu"; // Update the path to the correct location
@@ -27,14 +30,14 @@ import ContextMenu from "../ContextMenu/ContextMenu"; // Update the path to the 
 interface AppLauncherProps {
   iconSize: "lg-icons" | "md-icons" | "sm-icons";
   sortType: "name" | "size" | "item-type" | "date-modified";
-  iconLayout: { x: 72 | 100; y: 24 | 40 | 48 };
+  iconLayout: { x: 18 | 25; y: 6 | 10 | 12 };
   screenSize: { x: number; y: number };
 
   setSortType: (value: `name` | `size` | `item-type` | `date-modified`) => void;
 
   setIconSize: (value: `lg-icons` | `md-icons` | `sm-icons`) => void;
-  // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 9 apps | 10 apps | 12 }) => void;
-  setIconLayout: (value: { x: 72 | 100; y: 24 | 40 | 48 }) => void;
+  // setIconLayout:   x(long): 18 apps | 25 apps; y(tall): 6 apps | 10 apps | 12 }) => void;
+  setIconLayout: (value: { x: 18 | 25; y: 6 | 10 | 12 }) => void;
 }
 
 export function AppLauncher({
@@ -62,7 +65,14 @@ export function AppLauncher({
   //   </GridItem>;
 
   return (
-    <GridItem rowStart={1} rowSpan={screenSize.y - 1} colSpan={screenSize.x}>
+    <GridItem
+      rowStart={1}
+      rowSpan={screenSize.y - 1}
+      colSpan={screenSize.x}
+      h="100%"
+      w="100%"
+      overflow={"hidden"}
+    >
       <ContextMenu
         iconSize={iconSize}
         iconLayout={iconLayout}
@@ -76,18 +86,18 @@ export function AppLauncher({
           templateRows={`repeat(${iconLayout.y}, 1fr)`}
           h={"100%"}
           w={"100%"}
-          gap={1}
+          overflow={"hidden"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          p={1}
+          gap={2}
         >
-          {Object.entries(exports).map(([key]) => (
-            <GridItem
-              rowSpan={iconLayout.y === 24 ? 4 : iconLayout.y === 40 ? 4 : 4}
-              colSpan={iconLayout.x === 72 ? 8 : iconLayout.x === 100 ? 6 : 3}
-              key={key}
-              border={"1px solid white"}
-            >
-              {/* <Dialog.Root>
+          {Object.entries(exports).map(([key, Component], index) => (
+            <GridItem key={index} bg="blue.800">
+              {/* Item {index + 1} */}
+              <Dialog.Root>
                 <Dialog.Trigger asChild>
-                  <Button alignItems={"center"} justifyContent={"center"}>
+                  <Button>
                     <Stack>
                       <AvatarGroup>
                         <Avatar.Root>
@@ -95,50 +105,26 @@ export function AppLauncher({
                           <Avatar.Image />
                         </Avatar.Root>
                       </AvatarGroup>
-                      test
+                      test {index + 1}
                     </Stack>
                   </Button>
                 </Dialog.Trigger>
                 <Portal>
                   <Dialog.Backdrop />
-                  <Dialog.Positioner>
-                    <Dialog.Content
-                      w={"50vw"}
-                      h={"100vh"}
-                      p={0}
-                      position={"fixed"}
-                      top={0}
-                      left={0}
-                      m={0}
-                    >
-                      <Dialog.Body asChild p={0}>
-                        <SimpleGrid
-                          templateColumns={"repeat(20, 1fr)"} // 4 columns
-                          templateRows={"repeat(20, 1fr)"} // 4 rows
-                        >
-                          <GridItem colSpan={20} rowSpan={1} asChild>
-                            <Stack
-                              direction={"row"}
-                              justifyContent={"space-between"}
-                            >
-                              Naruto Form
-                              <AbsoluteCenter position={"relative"}>
-                                <Dialog.CloseTrigger
-                                  asChild
-                                  alignItems={"center"}
-                                  justifyContent={"center"}
-                                >
-                                  <CloseButton bg="red" />
-                                </Dialog.CloseTrigger>
-                              </AbsoluteCenter>
-                            </Stack>
-                          </GridItem>
-                        </SimpleGrid>
+                  <Dialog.Positioner >
+                    <Dialog.Content>
+                      <Dialog.Body>
+                        <HStack>
+                          <Dialog.CloseTrigger asChild>
+                            <CloseButton bg="red" />
+                          </Dialog.CloseTrigger>
+                          {index + 1} - {key}
+                        </HStack>
                       </Dialog.Body>
                     </Dialog.Content>
                   </Dialog.Positioner>
                 </Portal>
-              </Dialog.Root> */}
+              </Dialog.Root>
             </GridItem>
           ))}
         </SimpleGrid>

@@ -37,11 +37,11 @@ export default function Desktop() {
   //   { label: "SM icons", value: "sm-icons" },
   // ];
   const [iconLayout, setIconLayout] = useState<{
-    x: 72 | 100;
-    y: 24 | 40 | 48;
+    x: 18 | 25;
+    y: 6 | 10 | 12;
   }>({
-    y: iconSize === "lg-icons" ? 24 : iconSize === "md-icons" ? 40 : 48,
-    x: iconSize === "lg-icons" ? 72 : iconSize === "md-icons" ? 100 : 100,
+    y: iconSize === "lg-icons" ? 6 : iconSize === "md-icons" ? 10 : 12,
+    x: iconSize === "lg-icons" ? 18 : iconSize === "md-icons" ? 25 : 25,
   });
 
   const [sortType, setSortType] = useState<

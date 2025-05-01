@@ -1,15 +1,15 @@
-import Calculator from "./calculator/page";
-import Clock from "./clock/page";
-import MicrosoftEdge from "./microsoft_edge/page";
-import MicrosoftStore from "./microsoft_store/page";
-import MicrosoftTeams from "./microsoft_teams/page";
-import Notepad from "./notepad/page";
-import OnscreenKeyboard from "./onscreen_keyboard/page";
-import Search from "./search/page";
-import Settings from "./settings/page";
-import Start from "./start/page";
-import TaskManager from "./task_manager/page";
-import ToDoList from "./todo_list/page";
+import Calculator from "./calculator/Calculator";
+import Clock from "./clock/Clock";
+import MicrosoftEdge from "./microsoft_edge/MicrosoftEdge";
+import MicrosoftStore from "./microsoft_store/MicrosoftStore";
+import MicrosoftTeams from "./microsoft_teams/MicrosoftTeams";
+import Notepad from "./notepad/Notepad";
+import OnscreenKeyboard from "./onscreen_keyboard/OnscreenKeyboard";
+import Search from "./search/Search";
+import Settings from "./settings/Settings";
+import Start from "./start/Start";
+import TaskManager from "./task_manager/TaskManager";
+import ToDoList from "./todo_list/ToDoList";
 
 export {
   Settings,
