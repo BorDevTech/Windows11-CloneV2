@@ -11,8 +11,9 @@ import {
   CloseButton,
   SimpleGrid,
   Square,
-  Center,
+  Text,
   HStack,
+  Center,
 } from "@chakra-ui/react";
 import * as exports from "./(apps)/index";
 import ContextMenu from "../ContextMenu/ContextMenu"; // Update the path to the correct location
@@ -89,42 +90,47 @@ export function AppLauncher({
           overflow={"hidden"}
           justifyContent={"center"}
           alignItems={"center"}
-          p={1}
-          gap={2}
+          paddingLeft={2}
+          paddingRight={2}
+          gap={4}
         >
           {Object.entries(exports).map(([key, Component], index) => (
-            <GridItem key={index} bg="blue.800">
-              {/* Item {index + 1} */}
-              <Dialog.Root>
-                <Dialog.Trigger asChild>
-                  <Button>
+            <GridItem key={index}>
+              <Center>
+                <Dialog.Root>
+                  <Dialog.Trigger asChild>
                     <Stack>
                       <AvatarGroup>
-                        <Avatar.Root>
+                        <Avatar.Root
+                          variant={"solid"}
+                          borderRadius={0}
+                          size={"2xl"}
+                        >
                           <Avatar.Fallback />
                           <Avatar.Image />
                         </Avatar.Root>
                       </AvatarGroup>
-                      test {index + 1}
+                      <Text justifyContent={'center'} alignItems={'center'}>test {index + 1}</Text>
                     </Stack>
-                  </Button>
-                </Dialog.Trigger>
-                <Portal>
-                  <Dialog.Backdrop />
-                  <Dialog.Positioner >
-                    <Dialog.Content>
-                      <Dialog.Body>
-                        <HStack>
-                          <Dialog.CloseTrigger asChild>
-                            <CloseButton bg="red" />
-                          </Dialog.CloseTrigger>
-                          {index + 1} - {key}
-                        </HStack>
-                      </Dialog.Body>
-                    </Dialog.Content>
-                  </Dialog.Positioner>
-                </Portal>
-              </Dialog.Root>
+                  </Dialog.Trigger>
+                  <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                      <Dialog.Content>
+                        <Dialog.Body>
+                          <HStack>
+                            <Dialog.CloseTrigger asChild>
+                              <CloseButton bg="red" />
+                            </Dialog.CloseTrigger>
+                            {index + 1} - {key}
+                          </HStack>
+                        </Dialog.Body>
+                      </Dialog.Content>
+                    </Dialog.Positioner>
+                  </Portal>
+                </Dialog.Root>
+              </Center>
+              {/* Item {index + 1} */}
             </GridItem>
           ))}
         </SimpleGrid>
